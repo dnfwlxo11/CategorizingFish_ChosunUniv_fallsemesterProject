@@ -1,0 +1,10 @@
+{% extends 'sub_cafi/index.html' %}
+
+{% block content %}
+    <h2>Upload Image</h2>
+    <form method='post' enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type='submit'>Upload image</button>
+    </form>
+{% endblock %}
