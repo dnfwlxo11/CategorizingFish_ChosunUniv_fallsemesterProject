@@ -21,8 +21,6 @@ def upload_image(request):
 
         if form.is_valid():
             form.save()
-            print(str(request.FILES['pic']))
-
             # -*- coding: utf-8 -*-
 
             """Inception v3 architecture 모델을 retraining한 모델을 이용해서 이미지에 대한 추론(inference)을 진행하는 예제"""
@@ -30,9 +28,9 @@ def upload_image(request):
             import numpy as np
             import tensorflow.compat.v1 as tf
 
-            imagePath = 'C:\\DI\\' + str(request.FILES['pic'])  # 추론을 진행할 이미지 경로
-            modelFullPath = 'C:\\DI\\output_graph.pb'  # 읽어들일 graph 파일 경로
-            labelsFullPath = 'C:\\DI\\output_labels.txt'  # 읽어들일 labels 파일 경로
+            imagePath = 'media\\' + str(request.FILES['pic'])  # 추론을 진행할 이미지 경로
+            modelFullPath = 'cafi_model\\output_graph.pb'  # 읽어들일 graph 파일 경로
+            labelsFullPath = 'cafi_model\\output_labels.txt'  # 읽어들일 labels 파일 경로
 
             def create_graph():
                 """저장된(saved) GraphDef 파일로부터 graph를 생성하고 saver를 반환한다."""
@@ -81,7 +79,8 @@ def upload_image(request):
             print(str(result_score * 100)[:5] + '%확률로 ' + result_name + '로 추정됩니다')
 
         print(result_cafi)
-        return render(request, 'sub_cafi/list.html', {'data':result_cafi})
+        cafi_data = {'data':result_cafi, 'img_name':str(request.FILES['pic'])}
+        return render(request, 'sub_cafi/list.html', {'data':cafi_data})
     else:
         form = UploadForm()
 

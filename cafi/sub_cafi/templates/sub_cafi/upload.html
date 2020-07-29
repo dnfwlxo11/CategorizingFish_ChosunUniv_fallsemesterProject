@@ -1,10 +1,20 @@
-{% extends 'sub_cafi/index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분류 사진 업로드</title>
+</head>
+<body>
+    <h1>병어(병걸린 물고기) 자동 분류 시스템</h1>
 
-{% block content %}
     <h2>Upload Image</h2>
     <form method='post' enctype="multipart/form-data">
         {% csrf_token %}
         {{form}}
-        <button type='submit'>Upload image</button>
+        <button type='submit'>분류 시작</button>
     </form>
-{% endblock %}
+
+    <button onclick="location.href='/'">시작화면으로 가기</button>
+</body>
+</html>

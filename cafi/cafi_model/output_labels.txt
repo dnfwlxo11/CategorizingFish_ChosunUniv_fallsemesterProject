@@ -1,0 +1,6 @@
+flatfish disease
+flatfish healthy
+mullet disease
+mullet tealthy
+rockfish disease
+rockfish healthy
