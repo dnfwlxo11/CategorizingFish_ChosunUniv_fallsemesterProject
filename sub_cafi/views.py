@@ -26,7 +26,7 @@ def upload_image(request):
             """Inception v3 architecture 모델을 retraining한 모델을 이용해서 이미지에 대한 추론(inference)을 진행하는 예제"""
 
             import numpy as np
-            import tensorflow.compat.v1 as tf
+            import tensorflow as tf
 
             imagePath = 'media\\' + str(request.FILES['pic'])  # 추론을 진행할 이미지 경로
             modelFullPath = 'cafi_model\\output_graph.pb'  # 읽어들일 graph 파일 경로
