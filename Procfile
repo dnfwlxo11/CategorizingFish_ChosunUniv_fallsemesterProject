@@ -1,1 +1,1 @@
-web: gunicorn sub_cafi.wsgi --log-file -
+web: gunicorn cafi.wsgi --log-file -
